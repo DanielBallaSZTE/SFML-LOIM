@@ -27,7 +27,7 @@ void MusicPlayer::loadAllMusic()
 	// Easy Questions
 	loadSingleMusic("music/100to1000.wav", "easyQuestions");
 
-	std::cout << "\nMusicPlayer::Successfully loaded " << totalMusic << " musictracks.";
+	std::cout << "\nMusicPlayer::Successfuly loaded " << totalMusic << " musictracks.";
 } /* loadAllMusic */
 
 

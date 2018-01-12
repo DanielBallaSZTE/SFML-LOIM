@@ -71,15 +71,16 @@ void QManager::readQuestions(char *filename)
 	std::ifstream fp;
 	fp.open(filename);
 	Question *q = new Question;
-	scanQuestion(q, fp);
-	questionList->createNode(q);
-	int qLoaded = 1;
 
 	if (!fp.is_open())
 	{
 		std::cout << "ERR: FILE NOT FOUND " << filename;
 		return;
 	}
+
+	scanQuestion(q, fp);
+	questionList->createNode(q);
+	int qLoaded = 0;
 
 	while (!fp.eof()) 
 	{
