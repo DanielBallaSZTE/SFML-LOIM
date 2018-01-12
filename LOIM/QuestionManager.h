@@ -27,6 +27,7 @@ private:
 
 public:
 	QManager();
+	~QManager();
 	void	listQuestions();
 	void	readQuestions(char *filename);
 	void	freeQuestions();

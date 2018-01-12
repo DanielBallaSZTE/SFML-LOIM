@@ -124,6 +124,7 @@
     <ClCompile Include="QuestionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="textManager.h" />
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="musicPlayer.h" />
     <ClInclude Include="QuestionManager.h" />

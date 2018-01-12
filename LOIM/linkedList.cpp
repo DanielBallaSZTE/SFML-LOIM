@@ -1,12 +1,30 @@
 #include "linkedList.h"
 #include <string>
 
+/**
+ * Constructor for linkedList.
+ */
 linkedList::linkedList()
 {
 	head = NULL;
 	tail = NULL;
-}
+} /* linkedList */
 
+
+/**
+ * Destructor for linkedList.
+ * Frees every node.
+ */
+linkedList::~linkedList()
+{
+	freeNodes();
+} /* ~linkedList */
+
+
+/**
+ * creating the default node for the linkedList. Needs to be called only once.
+ * @q a Question structure.
+ */
 void linkedList::createNode(Question *q)
 {
 	node *temp = new node;
@@ -23,8 +41,12 @@ void linkedList::createNode(Question *q)
 		tail->next = temp;
 		tail = temp;
 	}
-}
+} /* createNode */
 
+
+/**
+ * Displays every element of the linkedList
+ */
 void linkedList::display()
 {
 	node *temp = new node;
@@ -41,16 +63,26 @@ void linkedList::display()
 			<< std::endl;
 		temp = temp->next;
 	}
-}
+} /* display */
 
+
+/**
+ * Inserts an element at the beginning of the list.
+ * @q a Question structure.
+ */
 void linkedList::insert_start(Question *q)
 {
 	node *temp = new node;
 	temp->q = q;
 	temp->next = head;
 	head = temp;
-}
+} /* insert_start */
 
+
+/**
+ * Inserts an element at the given position.
+ * @q a Question structure.
+ */
 void linkedList::insert_position(int pos, Question *q)
 {
 	node *pre = new node;
@@ -67,8 +99,12 @@ void linkedList::insert_position(int pos, Question *q)
 	temp->q = q;
 	pre->next = temp;
 	temp->next = cur;
-}
+} /* insert_position */
 
+
+/**
+ * Frees every single node of the linkedList.
+ */
 void linkedList::freeNodes()
 {
 	node *temp = new node;
@@ -78,4 +114,4 @@ void linkedList::freeNodes()
 		delete(temp->q);
 		temp = temp->next;
 	}
-}
+} /* freeNodes */

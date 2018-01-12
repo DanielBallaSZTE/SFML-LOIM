@@ -1,6 +1,11 @@
-﻿  main.cpp
+﻿  linkedList.cpp
+  Generating Code...
+  Compiling...
+  main.cpp
 d:\programming\loim\loim\loim\main.cpp(51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 d:\programming\loim\loim\loim\main.cpp(81): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 d:\programming\loim\loim\loim\main.cpp(83): warning C4305: '-=': truncation from 'double' to 'float'
 d:\programming\loim\loim\loim\main.cpp(84): warning C4305: '-=': truncation from 'double' to 'float'
+  QuestionManager.cpp
+  Generating Code...
   LOIM.vcxproj -> D:\Programming\LOIM\LOIM\x64\Debug\LOIM.exe

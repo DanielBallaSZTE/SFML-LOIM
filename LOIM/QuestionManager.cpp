@@ -4,11 +4,33 @@
 #include <sstream>
 #define GetCurrentDir _getcwd
 
+
+/**
+ * Constructor for QManager.
+ * Creates a new linkedList.
+ */
 QManager::QManager()
 {
 	questionList = new linkedList();
-}
+} /* QManager */
 
+
+/**
+ * Destructor for QManager.
+ * Frees the question structures, then frees the linkedList.
+ */
+QManager::~QManager()
+{
+	freeQuestions();
+	delete questionList;
+} /* ~QManager */
+
+
+/**
+ * Reads a single Question structure from the given file.
+ * @q Pointer to a Question structure.
+ * @fp Reference of the file to read from.
+ */
 void QManager::scanQuestion(Question *q, std::ifstream &fp)
 {
 	std::getline(fp, q->question, ';');
@@ -37,8 +59,13 @@ void QManager::scanQuestion(Question *q, std::ifstream &fp)
 
 	q->correct = result1;
 	q->difficulty = result2;
-}
+} /* scanQuestion */
 
+
+/**
+ * Reads questions from the given file.
+ * @filename name of the file to read from.
+ */
 void QManager::readQuestions(char *filename)
 {
 	std::ifstream fp;
@@ -65,23 +92,35 @@ void QManager::readQuestions(char *filename)
 
 	std::cout << "\nQuestionManager::Successfuly loaded " << qLoaded << " questions.";
 	fp.close();
-}
+} /* readQuestions */
 
+
+/**
+* Lists all questions
+*/
 void QManager::listQuestions()
 {
 	questionList->display();
-}
+} /* listQuestions */
 
+
+/**
+* Frees all Question structures.
+*/
 void QManager::freeQuestions()
 {
 	questionList->freeNodes();
-}
+} /* freeQuestions */
 
+
+/**
+* Converts a std::string to a number
+* @Text Reference of the string to convert.
+*/
 template <typename T>
-
 T QManager::StringToNumber(const std::string &Text)
 {
 	std::stringstream ss(Text);
 	T result;
 	return ss >> result ? result : 0;
-}
+} /* StringToNumber */

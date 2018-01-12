@@ -16,6 +16,7 @@ private:
 
 public:
 	linkedList();
+	~linkedList();
 	void	createNode(Question *q); // Creates a node (a list)
 	void	display(); // Displays the list
 	void	insert_start(Question *q); // Insert an element at the beginning of the list
