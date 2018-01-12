@@ -11,6 +11,7 @@ int main()
 	musicPlayer->playMusic("mainTheme");
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Legyen Ön is milliomos!");
+	window.setFramerateLimit(60);
 
 	QManager *questions = new QManager;
 	questions->readQuestions("questions.txt");
@@ -23,10 +24,32 @@ int main()
 	}
 	else
 	{
-		std::cout << "\nSpriteManager::Successfuly loaded logo.jpeg";
+		std::cout << "\nSpriteManager::Successfuly loaded image logo.jpeg";
 	}
+	sf::Font arial;
+	if (!arial.loadFromFile("fonts/arial.ttf"))
+	{
+		std::cout << "\nFontManager::Error loading font arial.ttf";
+	}
+	else
+	{
+		std::cout << "\nFontManager::Successfuly loaded font arial.ttf";
+	}
+	sf::Text dballa;
+	dballa.setFont(arial);
+	dballa.setString("Made in Csalbi");
+	dballa.setCharacterSize(24);
+	dballa.setFillColor(sf::Color::White);
+	dballa.setPosition(320, 561);
+
 	sf::Sprite sprite_bg;
 	sprite_bg.setTexture(texture_bg);
+	float pos_x = 392;
+	float pos_y = 294;
+	sprite_bg.setPosition(pos_x, pos_y);
+	double sScale = 0.01;
+	sprite_bg.setScale(sScale, sScale);
+	bool drawDaniel = false;
 
 	while (window.isOpen())
 	{
@@ -47,7 +70,24 @@ int main()
 
 		window.clear();
 		window.draw(sprite_bg);
+		if (drawDaniel)
+		{
+			window.draw(dballa);
+		}
 		window.display();
+
+		if (sScale <= 1)
+		{
+			sprite_bg.setScale(sScale, sScale);
+			sScale += 0.001;
+			pos_x -= 0.4;
+			pos_y -= 0.321;
+			sprite_bg.setPosition(pos_x, pos_y);
+		}
+		else if (!drawDaniel)
+		{
+			drawDaniel = true;
+		}
 	}
 
 

@@ -1,3 +1,3 @@
-Ki az a Balla Dani?;God;Kevésbé God;Annyira nem God;Kicsit sem God;1;3;
+Ki az a Balla Dani?;God;KevÃ©sbÃ© God;Annyira nem God;Kicsit sem God;1;3;
 q2;a1;a2;a3;a4;1;2;
 q3;a1;a2;a3;a4;2;3;
