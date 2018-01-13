@@ -4,7 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#define MAX_FONTS
+#define MAX_FONTS 1
+#define MAX_TEXTS 5
 
 typedef struct Fonts {
 	sf::Font	font;
@@ -19,15 +20,15 @@ typedef struct Texts {
 class TextManager {
 
 private:
-	Fonts		*fonts[1];
-	Texts		*texts[5];
+	Fonts		*fonts[MAX_FONTS];
+	Texts		*texts[MAX_TEXTS];
 
 public:
+	TextManager();
+	~TextManager();
 	sf::Font	getFont(std::string name);
 	void		displayText(sf::RenderWindow window, std::string name);
 	void		setTextFont(sf::Font, std::string name);
-
-
 };
 
 #endif

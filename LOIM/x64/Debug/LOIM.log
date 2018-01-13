@@ -1,2 +1,6 @@
-﻿  musicPlayer.cpp
+﻿  textManager.cpp
+  musicPlayer.cpp
+  main.cpp
+  Generating Code...
+d:\programming\loim\loim\loim\textmanager.cpp(51): warning C4715: 'TextManager::getFont': not all control paths return a value
   LOIM.vcxproj -> D:\Programming\LOIM\LOIM\x64\Debug\LOIM.exe

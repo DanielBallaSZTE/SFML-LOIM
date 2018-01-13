@@ -54,7 +54,9 @@ void MusicPlayer::playMusic(std::string name)
 	{
 		if (musicList[i]->name == name)
 		{
+			musicList[i]->musicFile.setVolume(globalVolume);
 			musicList[i]->musicFile.play();
+			break;
 		}
 	}
 } /* playMusic */
@@ -77,3 +79,47 @@ bool MusicPlayer::getMusicStatus(std::string name)
 
 	return false;
 } /* getMusicStatus */
+
+
+/**
+ * Sets the volume of the given music.
+ * @name Identifier name of the track.
+ * @volume Volume in float (0-100).
+ */
+void MusicPlayer::setMusicVolume(std::string name, float volume)
+{
+	for (int i = 0; i < totalMusic; i++)
+	{
+		if (musicList[i]->name == name)
+		{
+			musicList[i]->musicFile.setVolume(volume);
+			break;
+		}
+	}
+} /* setMusicVolume */
+
+
+/**
+ * Stops playing the given music.
+ * @name Identifier name of the track.
+ */
+void MusicPlayer::stopMusic(std::string name)
+{
+	for (int i = 0; i < totalMusic; i++)
+	{
+		if (musicList[i]->name == name)
+		{
+			musicList[i]->musicFile.stop();
+			break;
+		}
+	}
+} /* stopMusic */
+
+/**
+ * Sets the global volume
+ * @volume Volume to set.
+ */
+void MusicPlayer::setGlobalVolume(float volume)
+{
+	globalVolume = volume;
+} /* setGlobalVolume */

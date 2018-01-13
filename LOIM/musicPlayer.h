@@ -14,7 +14,8 @@ class MusicPlayer {
 
 private:
 	musicStruct *musicList[MAX_MUSIC];
-	int totalMusic;
+	int			totalMusic;
+	float		globalVolume;
 
 public:
 	MusicPlayer();
@@ -22,6 +23,9 @@ public:
 	void		loadSingleMusic(std::string filename, std::string name);
 	void		playMusic(std::string name);
 	bool		getMusicStatus(std::string name);
+	void		setMusicVolume(std::string name, float volume);
+	void		stopMusic(std::string name);
+	void		setGlobalVolume(float volume);
 };
 
 #endif
