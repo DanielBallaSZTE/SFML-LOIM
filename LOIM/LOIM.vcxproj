@@ -125,6 +125,7 @@
     <ClCompile Include="textManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="structs.h" />
     <ClInclude Include="textManager.h" />
     <ClInclude Include="linkedList.h" />
     <ClInclude Include="musicPlayer.h" />

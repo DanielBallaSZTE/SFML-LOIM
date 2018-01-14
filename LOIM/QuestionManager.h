@@ -6,19 +6,10 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
-
-typedef struct Question{
-	std::string	question;
-
-	// Answers
-	std::string	a1;
-	std::string	a2;
-	std::string	a3;
-	std::string	a4;
-
-	int		correct;
-	int		difficulty;
-} Question; /* Question */
+#include <string>
+#include <direct.h>
+#include <sstream>
+#include "structs.h"
 
 class QManager {
 private:

@@ -1,21 +1,24 @@
-#include <SFML/Graphics.hpp>
 #include "musicPlayer.h"
-#include <iostream>
-#include "linkedList.h"
 #include "QuestionManager.h"
-
-typedef struct Position{
-	float x;
-	float y;
-} Position;
+#include "textManager.h"
 
 int main()
 {
+	// Create MusicPlayer
 	MusicPlayer *musicPlayer = new MusicPlayer;
 	musicPlayer->setGlobalVolume(10.0f);
 	musicPlayer->playMusic("mainTheme");
 
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Legyen Ön is milliomos!");
+
+	// Create TextManager
+	TextManager *textManager = new TextManager;
+	textManager->createText("Made in Csalbi", "madeincsalbi");
+	// textManager->setTextFont(textManager->fonts[textManager->getFontId("arial")]->font, "madeincsalbi");
+	textManager->setTextSize("madeincsalbi", 24);
+	textManager->setTextColor("madeincsalbi", sf::Color::White);
+	textManager->setTextPosition("madeincsalbi", new Position(320, 561));
+
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Legyen Ön is milliomos!", sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
 
 	QManager *questions = new QManager;
@@ -31,21 +34,6 @@ int main()
 	{
 		std::cout << "\nSpriteManager::Successfuly loaded image logo.jpeg";
 	}
-	sf::Font arial;
-	if (!arial.loadFromFile("fonts/arial.ttf"))
-	{
-		std::cout << "\nFontManager::Error loading font arial.ttf";
-	}
-	else
-	{
-		std::cout << "\nFontManager::Successfuly loaded font arial.ttf";
-	}
-	sf::Text dballa;
-	dballa.setFont(arial);
-	dballa.setString("Made in Csalbi");
-	dballa.setCharacterSize(24);
-	dballa.setFillColor(sf::Color::White);
-	dballa.setPosition(320, 561);
 
 	sf::Sprite sprite_bg;
 	sprite_bg.setTexture(texture_bg);
@@ -92,7 +80,7 @@ int main()
 		window.draw(sprite_bg);
 		if (drawDaniel)
 		{
-			window.draw(dballa);
+			window.draw(textManager->texts[0]->text);
 		}
 		window.display();
 
@@ -112,6 +100,7 @@ int main()
 
 
 	questions->freeQuestions();
+	delete(textManager);
 	delete(musicPlayer);
 	delete(questions);
 

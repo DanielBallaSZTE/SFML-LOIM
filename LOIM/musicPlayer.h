@@ -2,13 +2,9 @@
 #define _MUSICPLAYER
 
 #include <SFML/Audio.hpp>
+#include "structs.h"
+
 #define MAX_MUSIC 2
-
-
-typedef struct musicStruct{
-	std::string name;
-	sf::Music	musicFile;
-} musicStruct;
 
 class MusicPlayer {
 

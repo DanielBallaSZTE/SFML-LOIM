@@ -1,13 +1,7 @@
-#include <iostream>
-#include "QuestionManager.h"
-
 #ifndef _LINKEDLIST
 #define _LINKEDLIST
 
-typedef struct node {
-	struct Question *q;
-	node	*next;
-} node;
+#include "structs.h"
 
 class linkedList {
 private:

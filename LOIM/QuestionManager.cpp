@@ -1,7 +1,4 @@
 #include "QuestionManager.h"
-#include <string>
-#include <direct.h>
-#include <sstream>
 #define GetCurrentDir _getcwd
 
 
